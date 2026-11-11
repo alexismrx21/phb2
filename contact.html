@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — PHB70</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
@@ -26,15 +28,64 @@
     </nav>
   </header>
 
-  <!-- TEXTE TEMPORAIRE en attendant le vrai contenu : à supprimer -->
-  <main class="placeholder-page">
-    <h1 class="section-title">Contact</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <main class="contact-page">
+    <section class="contact">
+      <div class="contact__form-col">
+        <p class="contact__eyebrow">Écrivez-nous</p>
+        <h1 class="contact__title">Décrivez votre projet.</h1>
+        <span class="contact__rule" aria-hidden="true"></span>
+
+        <!-- Formulaire : PAS ENCORE BRANCHÉ, voir contact.js -->
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form__row">
+            <label class="field">
+              <span class="field__label">Nom et prénom *</span>
+              <input class="field__input" type="text" name="nom" autocomplete="name" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Société</span>
+              <input class="field__input" type="text" name="societe" autocomplete="organization">
+            </label>
+          </div>
+          <div class="contact-form__row">
+            <label class="field">
+              <span class="field__label">E-mail *</span>
+              <input class="field__input" type="email" name="email" autocomplete="email" required>
+            </label>
+            <label class="field">
+              <span class="field__label">Téléphone</span>
+              <input class="field__input" type="tel" name="telephone" autocomplete="tel">
+            </label>
+          </div>
+          <label class="field">
+            <span class="field__label">Type de projet</span>
+            <select class="field__input" name="type" id="contact-type">
+              <option value="hotellerie">Hôtellerie</option>
+              <option value="restauration">Restauration</option>
+              <option value="immobilier">Immobilier de prestige</option>
+              <option value="particulier">Particulier</option>
+              <option value="autre">Autre</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">Votre projet *</span>
+            <textarea class="field__input field__input--area" name="message" id="contact-message" rows="4" required></textarea>
+          </label>
+
+          <label class="consent">
+            <input type="checkbox" name="consentement" required>
+            <span>J'accepte que PHB70 utilise ces informations pour me recontacter au sujet de ma demande. *</span>
+          </label>
+
+          <button class="contact-form__submit" type="submit">Envoyer <span aria-hidden="true">&rarr;</span></button>
+          <p class="contact-form__status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <figure class="contact__photo">
+        <img src="assets/contact/contact.jpg" alt="Porte en verre bleu et poignée en laiton, réalisation PHB70">
+      </figure>
+    </section>
   </main>
 
   <footer class="footer">
@@ -85,5 +136,6 @@
     </div>
   </footer>
   <script src="header.js"></script>
+  <script src="contact.js"></script>
 </body>
 </html>

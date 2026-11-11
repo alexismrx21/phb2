@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHB70 — Meubles sur mesure</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
@@ -29,8 +31,9 @@
   <main>
     <section class="carousel" aria-roledescription="carrousel" aria-label="Nos réalisations">
       <div class="carousel__track">
-        <img class="carousel__slide is-active" src="assets/carrousel/slide-1.png" alt="Espace bar avec comptoir en marbre, tabourets et fauteuils en bois">
+        <img class="carousel__slide is-active" src="assets/carrousel/slide-1.png" alt="Chambre avec tête de lit en bois, mur en pierre éclairé et chevet en marbre">
         <img class="carousel__slide" src="assets/carrousel/slide-2.png" alt="Salon avec sculpture murale en bois, canapé arrondi et table basse en bois massif">
+        <img class="carousel__slide" src="assets/carrousel/slide-3.png" alt="Salon circulaire avec caves à vin vitrées, lustre en cristal et canapé en arc de cercle">
       </div>
 
       <div class="carousel__text">
@@ -46,6 +49,25 @@
       <div class="carousel__dots"></div>
     </section>
 
+    <section class="apropos">
+      <div class="apropos__inner">
+        <header class="section-head">
+          <p class="section-eyebrow">Notre mission</p>
+          <h2 class="section-title">Donner vie à <em>votre projet</em></h2>
+        </header>
+        <div class="apropos__body">
+          <p class="apropos__lead">PHB70 conçoit et fait fabriquer du mobilier sur&#8209;mesure pour l'hôtellerie, la restauration et les résidences de standing.</p>
+          <p class="apropos__text">Notre réseau d'artisans et d'ateliers partenaires, implanté depuis plus de 20&nbsp;ans, nous permet de réaliser les projets les plus audacieux. Nous privilégions les circuits courts pour optimiser les coûts et les délais. Notre bureau d'étude intégré suit chaque pièce, du prototype au contrôle qualité avant expédition.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="galerie galerie--trio" aria-label="Aperçu de réalisations">
+      <img class="galerie__img" src="assets/galerie-trio/photo-1.png" alt="Cave à vin vitrée encadrée de boiseries et colonnes dorées, reflétée dans une table laquée">
+      <img class="galerie__img" src="assets/galerie-trio/photo-2.png" alt="Bar avec comptoir en marbre, tabourets en bois et fauteuils cannés">
+      <img class="galerie__img" src="assets/galerie-trio/photo-3.png" alt="Escalier hélicoïdal sombre à paroi dorée, éclairé par des suspensions sphériques">
+    </section>
+
     <section class="expertises">
       <header class="section-head">
         <p class="section-eyebrow">Savoir-faire</p>
@@ -53,27 +75,27 @@
       </header>
 
       <div class="expertises__grid">
-        <article class="card card--arrondi">
+        <a class="card card--arrondi" href="realisations.html?secteur=hotellerie">
           <img src="assets/expertises/hotellerie.png" alt="Façade d'un hôtel parisien éclairée à la tombée de la nuit">
           <div class="card__content">
             <h3 class="card__title">Hôtellerie</h3>
             <span class="card__more">Découvrir &rarr;</span>
           </div>
-        </article>
-        <article class="card card--centre">
+        </a>
+        <a class="card card--centre" href="realisations.html?secteur=restauration">
           <img src="assets/expertises/restauration.png" alt="Salle de restaurant avec chaises en bois et banquettes">
           <div class="card__content">
             <h3 class="card__title">Restauration</h3>
             <span class="card__more">Découvrir &rarr;</span>
           </div>
-        </article>
-        <article class="card card--arrondi-inverse">
+        </a>
+        <a class="card card--arrondi-inverse" href="realisations.html?secteur=immobilier">
           <img src="assets/expertises/immobilier-prestige.png" alt="Salon haut de gamme avec table basse en marbre vert et cheminée">
           <div class="card__content">
             <h3 class="card__title">Immobilier de prestige</h3>
             <span class="card__more">Découvrir &rarr;</span>
           </div>
-        </article>
+        </a>
       </div>
 
       <div class="expertises__link">
@@ -82,7 +104,7 @@
     </section>
 
     <section class="galerie" aria-label="Galerie de réalisations">
-      <img class="galerie__img galerie__img--1" src="assets/galerie/photo-1.png" alt="Grand salon avec canapé arrondi, mur de rangements sombres et baies vitrées">
+      <img class="galerie__img galerie__img--1" src="assets/galerie/photo-1.png" alt="Grand salon avec canapé arrondi, mur de rangements sombres et baies vitrées sur le coucher de soleil">
       <img class="galerie__img galerie__img--2" src="assets/galerie/photo-2.png" alt="Escalier hélicoïdal blanc avec suspensions lumineuses">
       <img class="galerie__img galerie__img--3" src="assets/galerie/photo-3.png" alt="Chambre avec tête de lit en arche rétroéclairée">
       <img class="galerie__img galerie__img--4" src="assets/galerie/photo-4.png" alt="Séjour ouvert avec canapé modulable, escalier sculptural et vue panoramique">
@@ -97,7 +119,9 @@
       <div class="agences__list">
         <article class="agence">
           <div class="agence__body">
+            <img class="agence__logo" src="assets/logo.png" alt="" aria-hidden="true">
             <h3 class="agence__city">Paris</h3>
+            <span class="agence__line" aria-hidden="true"></span>
             <a class="agence__phone" href="tel:+33682840308">+33 6 82 84 03 08</a>
             <address class="agence__address">
               53 bis rue de Passy<br>
@@ -108,7 +132,9 @@
         </article>
         <article class="agence">
           <div class="agence__body">
+            <img class="agence__logo" src="assets/logo.png" alt="" aria-hidden="true">
             <h3 class="agence__city">New York</h3>
+            <span class="agence__line" aria-hidden="true"></span>
             <a class="agence__phone" href="tel:+19173014228">+1 917 301 42 28</a>
             <address class="agence__address">
               40 East 94th Street<br>
@@ -119,7 +145,9 @@
         </article>
         <article class="agence">
           <div class="agence__body">
+            <img class="agence__logo" src="assets/logo.png" alt="" aria-hidden="true">
             <h3 class="agence__city">Luxembourg</h3>
+            <span class="agence__line" aria-hidden="true"></span>
             <a class="agence__phone" href="tel:+3522021182203">+352 20 21 18 22 03</a>
             <address class="agence__address">
               4 place de Paris<br>
@@ -130,7 +158,9 @@
         </article>
         <article class="agence">
           <div class="agence__body">
+            <img class="agence__logo" src="assets/logo.png" alt="" aria-hidden="true">
             <h3 class="agence__city">Portugal</h3>
+            <span class="agence__line" aria-hidden="true"></span>
             <a class="agence__phone" href="tel:+351910302959">+351 910 302 959</a>
             <address class="agence__address">
               14 avenida 20 de Maio<br>

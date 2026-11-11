@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sur Mesure — PHB70</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
@@ -26,16 +28,63 @@
     </nav>
   </header>
 
-  <!-- TEXTE TEMPORAIRE en attendant le vrai contenu : à supprimer -->
-  <main class="placeholder-page">
-    <h1 class="section-title">Sur Mesure</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <!-- SIMULATION : pièces, images et textes provisoires, à remplacer -->
+  <main>
+    <section class="method-intro">
+      <header class="section-head">
+        <p class="section-eyebrow">Sur Mesure</p>
+        <h1 class="section-title">Des pièces <em>uniques</em></h1>
+      </header>
+      <p class="method-intro__text">Chaque meuble part de vos envies : vos dimensions, vos essences de bois, vos tissus, vos finitions. Voici quelques pièces dessinées et fabriquées pour nos clients, et ce qui les rend uniques.</p>
+    </section>
+
+    <!-- Onglets pour comparer les dispositions (temporaire) -->
+    <div class="sm-bar">
+      <div class="view-tabs" role="tablist" aria-label="Choix de la disposition">
+        <button class="view-tabs__btn is-active" role="tab" id="vtab-triptyque" aria-controls="view-triptyque" aria-selected="true">Disposition 5 · Triptyque</button>
+        <button class="view-tabs__btn" role="tab" id="vtab-planches" aria-controls="view-planches" aria-selected="false" tabindex="-1">Disposition 4 · Planche matériaux</button>
+        <button class="view-tabs__btn" role="tab" id="vtab-fiches" aria-controls="view-fiches" aria-selected="false" tabindex="-1">Disposition 1 · Fiches pièces</button>
+        <button class="view-tabs__btn" role="tab" id="vtab-details" aria-controls="view-details" aria-selected="false" tabindex="-1">Disposition 2 · Points de détail</button>
+        <button class="view-tabs__btn" role="tab" id="vtab-mosaique" aria-controls="view-mosaique" aria-selected="false" tabindex="-1">Disposition 3 · Mosaïque</button>
+      </div>
+    </div>
+
+    <!-- Disposition 5 : trois photos côte à côte (vue arrière, la pièce, le détail) + texte -->
+    <section class="sm-triptyque" id="view-triptyque" role="tabpanel" aria-labelledby="vtab-triptyque"></section>
+
+    <!-- Disposition 4 : photo d'ambiance + planche matériaux qui chevauche + carte de présentation -->
+    <section class="sm-planches" id="view-planches" role="tabpanel" aria-labelledby="vtab-planches" hidden></section>
+
+    <!-- Disposition 1 : une pièce par bloc, photo + fiche, en alternance -->
+    <section class="sm-fiches" id="view-fiches" role="tabpanel" aria-labelledby="vtab-fiches" hidden></section>
+
+    <!-- Disposition 2 : une pièce à la fois, points cliquables sur la photo -->
+    <section class="sm-details" id="view-details" role="tabpanel" aria-labelledby="vtab-details" hidden>
+      <nav class="sm-details__nav" aria-label="Choisir une pièce"></nav>
+      <div class="sm-details__stage">
+        <figure class="sm-details__figure"></figure>
+        <div class="sm-details__panel" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Disposition 3 : grille de photos, la fiche s'ouvre sur le côté -->
+    <section class="sm-mosaique" id="view-mosaique" role="tabpanel" aria-labelledby="vtab-mosaique" hidden></section>
+
+    <!-- Appel à l'action commun -->
+    <section class="sm-cta">
+      <p class="section-eyebrow">Votre pièce</p>
+      <h2 class="sm-cta__title">Une idée, un lieu, <em>une pièce à imaginer ?</em></h2>
+      <a class="sm-cta__link" href="contact.html">Parlons de votre projet</a>
+    </section>
   </main>
+
+  <!-- Fiche latérale de la disposition 3 -->
+  <div class="sm-drawer" id="sm-drawer" role="dialog" aria-modal="true" aria-labelledby="sm-drawer-title" hidden>
+    <div class="sm-drawer__panel">
+      <button class="sm-drawer__close" type="button" aria-label="Fermer la fiche">&times;</button>
+      <div class="sm-drawer__content"></div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer__top">
@@ -85,5 +134,6 @@
     </div>
   </footer>
   <script src="header.js"></script>
+  <script src="sur-mesure.js"></script>
 </body>
 </html>
