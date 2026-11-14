@@ -2428,11 +2428,7 @@ a.card:focus-visible {
 }
 
 .sm-triptyque[hidden],
-.sm-planches[hidden],
-.sm-fiches[hidden],
-.sm-details[hidden],
-.sm-mosaique[hidden],
-.sm-drawer[hidden] {
+.sm-details[hidden] {
   display: none !important;
 }
 
@@ -2450,14 +2446,6 @@ a.card:focus-visible {
   font-size: 2.6rem;
   font-weight: 400;
   line-height: 1.05;
-}
-
-.sm-projet {
-  margin-top: 8px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-style: italic;
-  font-size: 1.15rem;
-  color: rgba(17, 17, 17, 0.6);
 }
 
 .sm-demande {
@@ -2486,32 +2474,6 @@ a.card:focus-visible {
   margin: 18px 0 24px;
   font-style: italic;
   color: rgba(17, 17, 17, 0.7);
-}
-
-/* Fiche technique */
-.sm-specs {
-  border-top: 1px solid rgba(17, 17, 17, 0.12);
-}
-
-.sm-specs div {
-  display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 16px;
-  padding: 14px 0;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.12);
-}
-
-.sm-specs dt {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: rgba(17, 17, 17, 0.5);
-  padding-top: 3px;
-}
-
-.sm-specs dd {
-  font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 /* Nuancier : pastilles des matériaux choisis */
@@ -2642,46 +2604,6 @@ a.card:focus-visible {
   color: rgba(17, 17, 17, 0.65);
 }
 
-/* ----- Disposition 1 : fiches pièces en alternance ----- */
-.sm-fiches {
-  width: min(1300px, calc(100% - 80px));
-  margin: 0 auto;
-}
-
-.sm-fiche {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 80px;
-  align-items: center;
-  padding-bottom: 120px;
-}
-
-.sm-fiche:nth-child(even) {
-  grid-template-columns: 5fr 7fr;
-}
-
-.sm-fiche:nth-child(even) .sm-fiche__figure {
-  order: 2;
-}
-
-.sm-fiche__figure {
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #ece8df;
-}
-
-.sm-fiche__figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.2s cubic-bezier(0.22, 0.8, 0.25, 1);
-}
-
-.sm-fiche:hover .sm-fiche__figure img {
-  transform: scale(1.03);
-}
-
 /* ----- Disposition 2 : points de détail ----- */
 .sm-details {
   width: min(1300px, calc(100% - 80px));
@@ -2746,150 +2668,11 @@ a.card:focus-visible {
   align-items: start;
 }
 
-/* ----- Disposition 3 : mosaïque ----- */
-.sm-mosaique {
-  width: min(1300px, calc(100% - 80px));
-  margin: 0 auto 120px;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 160px;
-  gap: 16px;
-}
-
-.sm-tile {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  border: none;
-  background: #ece8df;
-  cursor: pointer;
-  font: inherit;
-  text-align: left;
-}
-
-/* Rythme de la grille : grandes et petites cases en alternance */
-.sm-tile--1 { grid-column: span 4; grid-row: span 3; }
-.sm-tile--2 { grid-column: span 2; grid-row: span 3; }
-.sm-tile--3 { grid-column: span 2; grid-row: span 2; }
-.sm-tile--4 { grid-column: span 2; grid-row: span 2; }
-.sm-tile--5 { grid-column: span 2; grid-row: span 2; }
-.sm-tile--6 { grid-column: span 6; grid-row: span 3; }
-
-.sm-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1s cubic-bezier(0.22, 0.8, 0.25, 1);
-}
-
-.sm-tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(17, 17, 17, 0.6), transparent 50%);
-  opacity: 0.7;
-  transition: opacity 0.4s;
-}
-
-.sm-tile__caption {
-  position: absolute;
-  left: 24px;
-  right: 24px;
-  bottom: 22px;
-  z-index: 1;
-  color: #fff;
-}
-
-.sm-tile__secteur {
-  display: block;
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  opacity: 0.8;
-}
-
-.sm-tile__nom {
-  display: block;
-  margin-top: 6px;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.7rem;
-  line-height: 1.1;
-}
-
-.sm-tile:hover img,
-.sm-tile:focus-visible img {
-  transform: scale(1.05);
-}
-
-.sm-tile:hover::after,
-.sm-tile:focus-visible::after {
-  opacity: 1;
-}
-
-/* Fiche latérale */
-.sm-drawer {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(17, 17, 17, 0);
-  transition: background 0.35s ease;
-}
-
-.sm-drawer.is-open {
-  background: rgba(17, 17, 17, 0.45);
-}
-
-.sm-drawer__panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(560px, 100%);
-  background: #F7F5EF;
-  transform: translateX(100%);
-  transition: transform 0.35s cubic-bezier(0.22, 0.8, 0.25, 1);
-}
-
-.sm-drawer.is-open .sm-drawer__panel {
-  transform: none;
-}
-
-.sm-drawer__content {
-  height: 100%;
-  overflow-y: auto;
-  padding: 72px 48px 56px;
-}
-
-.sm-drawer__content .sm-pinned {
-  margin-bottom: 32px;
-}
-
-.sm-drawer__content .sm-detail-list {
-  margin-top: 32px;
-}
-
-.sm-drawer__close {
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: none;
-  font-size: 2rem;
-  line-height: 1;
-  color: #111;
-  cursor: pointer;
-}
-
 /* ----- Disposition 5 : triptyque -----
-   Même construction que la planche matériaux : grande photo à gauche,
-   photo du milieu qui chevauche les deux autres, photo de détail à droite.
-   Le titre et le texte sont en dessous. */
+   Grande photo de face à gauche ; à droite, la vue de dos et le détail
+   l'un au-dessus de l'autre. Le titre et le texte sont en dessous. */
 .sm-triptyque {
-  width: min(1300px, calc(100% - 80px));
+  width: min(980px, calc(100% - 80px));
   margin: 0 auto;
 }
 
@@ -2897,66 +2680,36 @@ a.card:focus-visible {
   margin-bottom: 140px;
 }
 
+/* Les photos s'affichent en entier (pas de recadrage).
+   La largeur exacte des colonnes est recalculée en JS d'après le format des photos
+   (voir fitTrip dans sur-mesure.js) ; la valeur ci-dessous sert en attendant. */
 .sm-trip__images {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
+  grid-template-columns: 2.13fr 1fr;
+  gap: 16px;
+  align-items: start;
 }
 
 .sm-trip__fig {
-  grid-row: 1;
-  position: relative;
-  overflow: hidden;
+  margin: 0;
   background: #ece8df;
 }
 
 .sm-trip__fig img {
-  position: absolute;
-  inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
-/* Gauche : la grande photo, au format portrait */
-.sm-trip__fig--1 {
-  grid-column: 1 / 6;
-  z-index: 1;
-  aspect-ratio: 4 / 5;
-  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.35);
-}
-
-/* Droite : le détail, de la même hauteur */
-.sm-trip__fig--3 {
-  grid-column: 7 / 13;
-  align-self: stretch;
-}
-
-/* Milieu : à cheval sur les deux autres, encadré comme un tirage
-   (marge crème + filet fin) pour qu'on voie bien que c'est un gros plan */
-.sm-trip__fig--2 {
-  grid-column: 5 / 8;
-  z-index: 2;
-  aspect-ratio: 1 / 1;
-  border: 14px solid #fbfaf6;
-  outline: 1px solid rgba(17, 17, 17, 0.12);
-  box-shadow: 0 28px 60px -20px rgba(0, 0, 0, 0.55);
-}
-
-/* Filet intérieur autour de la photo */
-.sm-trip__fig--2::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.15);
-  pointer-events: none;
+.sm-trip__col {
+  display: grid;
+  gap: 16px;
 }
 
 .sm-trip__text {
   display: grid;
   grid-template-columns: 5fr 7fr;
-  gap: 64px;
+  gap: 48px;
   margin-top: 48px;
 }
 
@@ -2965,25 +2718,16 @@ a.card:focus-visible {
   max-width: 620px;
 }
 
-/* Tablette / mobile : grande photo, celle du milieu qui chevauche son bas, puis le détail */
+/* Tablette / mobile : la pièce en grand, puis vue de dos et détail côte à côte */
 @media (max-width: 900px) {
   .sm-trip__images {
-    display: block;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .sm-trip__fig--1 {
-    width: 78%;
-  }
-
-  .sm-trip__fig--2 {
-    width: 52%;
-    margin: -22% 16px 0 auto;
-    border-width: 8px;
-  }
-
-  .sm-trip__fig--3 {
-    aspect-ratio: 3 / 2;
-    margin-top: 16px;
+  .sm-trip__col {
+    grid-template-columns: 1fr 1fr; /* proportions exactes recalculées en JS */
+    gap: 12px;
   }
 
   .sm-trip__text {
@@ -2993,280 +2737,12 @@ a.card:focus-visible {
   }
 }
 
-/* ----- Disposition 4 : planche matériaux -----
-   Photo d'ambiance à gauche, planche matériaux qui chevauche la photo et la carte,
-   carte de présentation à droite ; on inverse un bloc sur deux */
-.sm-planches {
-  width: min(1300px, calc(100% - 80px));
-  margin: 0 auto;
-}
-
-.sm-case {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
-  margin-bottom: 140px;
-}
-
-.sm-case__photo {
-  grid-column: 1 / 8;
-  grid-row: 1;
-  align-self: stretch;
-  position: relative;
-  z-index: 1;
-  min-height: 520px;
-  overflow: hidden;
-  background: #ece8df;
-  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.35);
-}
-
-.sm-case__photo img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.sm-case__card {
-  grid-column: 8 / 13;
-  grid-row: 1;
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 56px 0;
-  padding: 56px 48px 48px 170px;
-  background: #fbfaf6;
-  border: 1px solid rgba(17, 17, 17, 0.12);
-  border-left: none;
-}
-
-/* La planche : à cheval entre la photo et la carte */
-.sm-case__board {
-  grid-column: 6 / 9;
-  grid-row: 1;
-  position: relative;
-  z-index: 2;
-  margin-right: 24px;
-  box-shadow: 0 24px 50px -18px rgba(0, 0, 0, 0.5);
-}
-
-.sm-case__board > img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Bloc inversé : photo à droite */
-.sm-case:nth-child(even) .sm-case__photo { grid-column: 6 / 13; }
-.sm-case:nth-child(even) .sm-case__card {
-  grid-column: 1 / 6;
-  padding: 56px 170px 48px 48px;
-  border-left: 1px solid rgba(17, 17, 17, 0.12);
-  border-right: none;
-}
-.sm-case:nth-child(even) .sm-case__board {
-  grid-column: 5 / 8;
-  margin-right: 0;
-  margin-left: 24px;
-}
-
-.sm-case .sm-title {
-  font-size: 2.3rem;
-}
-
-/* Planche dessinée : échantillons posés sur un fond brun */
-.sm-board {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 10px;
-  aspect-ratio: 4 / 5;
-  padding: 26px;
-  background:
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.06), transparent 60%),
-    #4a3f37;
-}
-
-.sm-board__tile {
-  position: relative;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.sm-board__tile.is-active {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.45);
-  z-index: 1;
-}
-
-.sm-board__num {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  display: grid;
-  place-items: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: rgba(247, 245, 239, 0.9);
-  font-size: 0.6rem;
-  color: #111;
-}
-
-/* Textures des échantillons (la couleur vient de --c) */
-.sm-tex--bois {
-  background:
-    repeating-linear-gradient(92deg, rgba(0, 0, 0, 0.1) 0 1px, transparent 1px 6px),
-    repeating-linear-gradient(88deg, rgba(255, 255, 255, 0.06) 0 2px, transparent 2px 11px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.12), transparent 30%, rgba(0, 0, 0, 0.08) 70%, transparent),
-    var(--c);
-}
-
-.sm-tex--tissu {
-  background:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 3px),
-    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.12) 0 1px, transparent 1px 3px),
-    var(--c);
-}
-
-.sm-tex--cuir {
-  background:
-    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.22), transparent 55%),
-    radial-gradient(circle at 80% 90%, rgba(0, 0, 0, 0.2), transparent 50%),
-    var(--c);
-}
-
-.sm-tex--metal {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 35%, rgba(0, 0, 0, 0.18) 60%, rgba(255, 255, 255, 0.3) 85%, transparent),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 2px),
-    var(--c);
-}
-
-.sm-tex--pierre {
-  background:
-    radial-gradient(rgba(0, 0, 0, 0.16) 1px, transparent 1.6px) 0 0 / 7px 7px,
-    radial-gradient(rgba(255, 255, 255, 0.35) 1px, transparent 1.6px) 3px 4px / 9px 9px,
-    radial-gradient(rgba(0, 0, 0, 0.1) 1.5px, transparent 2px) 5px 1px / 13px 13px,
-    var(--c);
-}
-
-.sm-tex--marbre {
-  background:
-    linear-gradient(115deg, transparent 38%, rgba(160, 110, 70, 0.35) 40%, transparent 44%),
-    linear-gradient(160deg, transparent 60%, rgba(255, 255, 255, 0.55) 62%, transparent 66%),
-    linear-gradient(70deg, transparent 20%, rgba(150, 100, 60, 0.2) 22%, transparent 26%),
-    var(--c);
-}
-
 /* Texte de présentation */
 .sm-case__text {
   margin: 22px 0 32px;
   font-size: 0.98rem;
   line-height: 1.75;
   color: rgba(17, 17, 17, 0.72);
-}
-
-/* Matériaux retenus, numérotés comme sur la planche */
-.sm-mats {
-  list-style: none;
-  counter-reset: mat;
-  padding-top: 20px;
-  border-top: 1px solid rgba(17, 17, 17, 0.1);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 20px;
-}
-
-.sm-mats li {
-  counter-increment: mat;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.82rem;
-  color: rgba(17, 17, 17, 0.75);
-  transition: color 0.25s;
-}
-
-.sm-mats li::before {
-  content: counter(mat);
-  width: 12px;
-  font-size: 0.65rem;
-  color: rgba(17, 17, 17, 0.4);
-}
-
-.sm-mats li.is-active {
-  color: #111;
-}
-
-.sm-mats__chip {
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
-}
-
-@media (max-width: 1100px) {
-  .sm-case__card,
-  .sm-case:nth-child(even) .sm-case__card {
-    padding-left: 130px;
-  }
-
-  .sm-case:nth-child(even) .sm-case__card {
-    padding-left: 40px;
-    padding-right: 130px;
-  }
-}
-
-/* Tablette / mobile : photo, planche qui chevauche le bas de la photo, puis la carte */
-@media (max-width: 900px) {
-  .sm-case,
-  .sm-case:nth-child(even) {
-    display: block;
-    margin-bottom: 96px;
-  }
-
-  .sm-case__photo,
-  .sm-case:nth-child(even) .sm-case__photo {
-    min-height: 0;
-    aspect-ratio: 4 / 3;
-  }
-
-  .sm-case__board,
-  .sm-case:nth-child(even) .sm-case__board {
-    width: 52%;
-    margin: -22% 16px 0 auto;
-  }
-
-  .sm-case__card,
-  .sm-case:nth-child(even) .sm-case__card {
-    margin: -40px 0 0;
-    padding: 64px 24px 32px;
-    border: 1px solid rgba(17, 17, 17, 0.12);
-  }
-}
-
-@media (max-width: 600px) {
-  .sm-planches {
-    width: calc(100% - 32px);
-  }
-
-  .sm-case__board,
-  .sm-case:nth-child(even) .sm-case__board {
-    width: 58%;
-  }
-
-  .sm-board {
-    padding: 14px;
-    gap: 6px;
-  }
-
-  .sm-mats {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* ----- Appel à l'action ----- */
@@ -3309,42 +2785,16 @@ a.card:focus-visible {
 
 /* ----- Tablette / mobile ----- */
 @media (max-width: 900px) {
-  .sm-fiche,
-  .sm-fiche:nth-child(even) {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-bottom: 88px;
-  }
-
-  .sm-fiche:nth-child(even) .sm-fiche__figure {
-    order: 0;
-  }
-
   .sm-details__stage {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-
-  .sm-mosaique {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;
-  }
-
-  .sm-tile--1,
-  .sm-tile--6 { grid-column: span 2; grid-row: span 2; }
-  .sm-tile--2,
-  .sm-tile--3,
-  .sm-tile--4,
-  .sm-tile--5 { grid-column: span 1; grid-row: span 2; }
 }
 
 @media (max-width: 600px) {
   .sm-bar,
   .sm-triptyque,
-  .sm-planches,
-  .sm-fiches,
   .sm-details,
-  .sm-mosaique,
   .sm-cta {
     width: calc(100% - 32px);
   }
@@ -3358,24 +2808,6 @@ a.card:focus-visible {
     font-size: 2rem;
   }
 
-  .sm-specs div {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-
-  .sm-tile__nom {
-    font-size: 1.3rem;
-  }
-
-  .sm-tile__caption {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
-  }
-
-  .sm-drawer__content {
-    padding: 64px 20px 40px;
-  }
 }
 
 /* =====================================================================

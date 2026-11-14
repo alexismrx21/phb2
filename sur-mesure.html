@@ -42,21 +42,12 @@
     <div class="sm-bar">
       <div class="view-tabs" role="tablist" aria-label="Choix de la disposition">
         <button class="view-tabs__btn is-active" role="tab" id="vtab-triptyque" aria-controls="view-triptyque" aria-selected="true">Disposition 5 · Triptyque</button>
-        <button class="view-tabs__btn" role="tab" id="vtab-planches" aria-controls="view-planches" aria-selected="false" tabindex="-1">Disposition 4 · Planche matériaux</button>
-        <button class="view-tabs__btn" role="tab" id="vtab-fiches" aria-controls="view-fiches" aria-selected="false" tabindex="-1">Disposition 1 · Fiches pièces</button>
         <button class="view-tabs__btn" role="tab" id="vtab-details" aria-controls="view-details" aria-selected="false" tabindex="-1">Disposition 2 · Points de détail</button>
-        <button class="view-tabs__btn" role="tab" id="vtab-mosaique" aria-controls="view-mosaique" aria-selected="false" tabindex="-1">Disposition 3 · Mosaïque</button>
       </div>
     </div>
 
-    <!-- Disposition 5 : trois photos côte à côte (vue arrière, la pièce, le détail) + texte -->
+    <!-- Disposition 5 : la pièce de face, vue arrière + détail empilés, puis texte -->
     <section class="sm-triptyque" id="view-triptyque" role="tabpanel" aria-labelledby="vtab-triptyque"></section>
-
-    <!-- Disposition 4 : photo d'ambiance + planche matériaux qui chevauche + carte de présentation -->
-    <section class="sm-planches" id="view-planches" role="tabpanel" aria-labelledby="vtab-planches" hidden></section>
-
-    <!-- Disposition 1 : une pièce par bloc, photo + fiche, en alternance -->
-    <section class="sm-fiches" id="view-fiches" role="tabpanel" aria-labelledby="vtab-fiches" hidden></section>
 
     <!-- Disposition 2 : une pièce à la fois, points cliquables sur la photo -->
     <section class="sm-details" id="view-details" role="tabpanel" aria-labelledby="vtab-details" hidden>
@@ -67,9 +58,6 @@
       </div>
     </section>
 
-    <!-- Disposition 3 : grille de photos, la fiche s'ouvre sur le côté -->
-    <section class="sm-mosaique" id="view-mosaique" role="tabpanel" aria-labelledby="vtab-mosaique" hidden></section>
-
     <!-- Appel à l'action commun -->
     <section class="sm-cta">
       <p class="section-eyebrow">Votre pièce</p>
@@ -77,14 +65,6 @@
       <a class="sm-cta__link" href="contact.html">Parlons de votre projet</a>
     </section>
   </main>
-
-  <!-- Fiche latérale de la disposition 3 -->
-  <div class="sm-drawer" id="sm-drawer" role="dialog" aria-modal="true" aria-labelledby="sm-drawer-title" hidden>
-    <div class="sm-drawer__panel">
-      <button class="sm-drawer__close" type="button" aria-label="Fermer la fiche">&times;</button>
-      <div class="sm-drawer__content"></div>
-    </div>
-  </div>
 
   <footer class="footer">
     <div class="footer__top">

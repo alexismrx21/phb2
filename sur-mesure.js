@@ -1,13 +1,11 @@
-// Page Sur Mesure : pièces personnalisées, présentées de 5 façons (onglets temporaires
-// pour comparer). Toutes les dispositions sont générées à partir de la liste PIECES.
+// Page Sur Mesure : pièces personnalisées, présentées de 2 façons (onglets temporaires
+// pour comparer : disposition 5 triptyque, disposition 2 points de détail). Toutes les dispositions sont générées à partir de la liste PIECES.
 (function () {
   // ===== Liste des pièces (SIMULATION : textes et caractéristiques à remplacer) =====
   // demande : ce que le client voulait, en une phrase
-  // caracteristiques : lignes de la fiche (libellé → valeur)
-  // nuancier : matériaux choisis par le client (pastilles + planche matériaux)
-  //   texture : 'bois', 'tissu', 'cuir', 'metal', 'pierre' ou 'marbre' (pour la planche dessinée)
-  // planche : photo de la planche matériaux ; si vide, elle est dessinée à partir du nuancier
-  // texte : court paragraphe de présentation (disposition 4)
+  // caracteristiques, planche, texture, projet : plus affichés pour l'instant (gardés pour plus tard)
+  // nuancier : matériaux choisis par le client (pastilles)
+  // texte : court paragraphe de présentation (disposition 5)
   // details : points sur la photo, x et y en % de l'image (0,0 = coin haut gauche)
   const PIECES = [
     {
@@ -15,12 +13,12 @@
       projet: 'Projet à confirmer',
       secteur: 'Hôtellerie',
       image: 'assets/sur-mesure/fauteuil-arceau/vue-face.jpg',
-      // triptyque : 3 photos — gauche (grande), milieu (chevauche les deux autres), droite
-      //   position : facultatif, quelle partie de la photo garder (ex. 'center 70%')
+      // triptyque : 3 photos — gauche (grande), puis à droite l'une au-dessus de l'autre
+      //   les photos sont affichées en entier, sans recadrage
       triptyque: [
+        { src: 'assets/sur-mesure/fauteuil-arceau/vue-face.jpg', legende: 'La pièce' },
         { src: 'assets/sur-mesure/fauteuil-arceau/vue-arriere.jpg', legende: 'Vue arrière' },
         { src: 'assets/sur-mesure/fauteuil-arceau/detail.jpg', legende: 'Le détail' },
-        { src: 'assets/sur-mesure/fauteuil-arceau/vue-face.jpg', legende: 'La pièce' },
       ],
       demande: 'Un fauteuil de lounge doux et lumineux, dont la structure devienne un élément de décor.',
       caracteristiques: {
@@ -33,7 +31,6 @@
         { nom: 'Nubuck ivoire', couleur: '#ece6da', texture: 'cuir' },
         { nom: 'Laiton brossé', couleur: '#cdb57c', texture: 'metal' },
         { nom: 'Fil de surpiqûre', couleur: '#d9cfbd', texture: 'tissu' },
-        { nom: 'Béton du sol', couleur: '#8d8a85', texture: 'pierre' },
       ],
       texte: 'Une structure en tube de laiton cintré d\u2019un seul tenant, qui enveloppe l\u2019assise et se prolonge en accoudoirs. Nubuck ivoire, double surpiqûre et rouleaux fixés par des bagues en laiton usinées sur mesure.',
       details: [
@@ -41,6 +38,124 @@
         { x: 30, y: 62, titre: 'Tube cintré', texte: 'Un seul tube de laiton, cintré sans soudure visible.' },
         { x: 62, y: 52, titre: 'Double surpiqûre', texte: 'Coutures parallèles qui soulignent les volumes de l\u2019assise.' },
         { x: 74, y: 88, titre: 'Patins arrondis', texte: 'Le tube se termine en boucle au sol, sans pied rapporté.' },
+      ],
+    },
+    {
+      nom: 'Bibliothèque Orgue',
+      projet: 'Projet à confirmer',
+      secteur: 'Résidentiel',
+      image: 'assets/sur-mesure/bibliotheque-orgue/vue-face.jpg',
+      triptyque: [
+        { src: 'assets/sur-mesure/bibliotheque-orgue/vue-face.jpg', legende: 'La pièce' },
+        { src: 'assets/sur-mesure/bibliotheque-orgue/vue-buffet.jpg', legende: 'Le buffet assorti' },
+        { src: 'assets/sur-mesure/bibliotheque-orgue/detail.jpg', legende: 'Le détail' },
+      ],
+      demande: 'Une grande bibliothèque ouverte, légère malgré sa taille, et un buffet assorti pour le même salon.',
+      caracteristiques: {
+        'Matériaux': 'Tubes de laiton, plateaux laqués, maille de laiton tissée',
+        'Finitions': 'Laiton brossé satiné, laque gris perle mate',
+        'Dimensions': 'L 240 × P 40 × H 220 cm',
+      },
+      planche: '',
+      nuancier: [
+        { nom: 'Laiton brossé', couleur: '#c9b071', texture: 'metal' },
+        { nom: 'Laque gris perle', couleur: '#e3e3e0', texture: 'pierre' },
+        { nom: 'Maille de laiton', couleur: '#d8c79a', texture: 'tissu' },
+      ],
+      texte: 'Des faisceaux de tubes en laiton, comme des tuyaux d\u2019orgue, portent des plateaux laqués gris perle. Des caissons en maille de laiton tissée viennent rythmer les étagères ; le buffet reprend le même vocabulaire.',
+      details: [
+        { x: 17, y: 45, titre: 'Faisceaux de tubes', texte: 'Les montants sont faits de tubes de laiton groupés, sans aucune vis apparente.' },
+        { x: 53, y: 43, titre: 'Caissons en maille', texte: 'Maille de laiton tissée, tendue dans un cadre en laiton plié.' },
+        { x: 60, y: 20, titre: 'Plateaux laqués', texte: 'Laque gris perle mate, chants fins pour garder la légèreté.' },
+        { x: 40, y: 87, titre: 'Socle en laiton', texte: 'Une plaque de laiton brossé qui pose la bibliothèque au sol.' },
+      ],
+    },
+    {
+      nom: 'Buffet Envol',
+      projet: 'Projet à confirmer',
+      secteur: 'Résidentiel',
+      image: 'assets/sur-mesure/buffet-envol/vue-face.jpg',
+      triptyque: [
+        { src: 'assets/sur-mesure/buffet-envol/vue-face.jpg', legende: 'La pièce' },
+        { src: 'assets/sur-mesure/buffet-envol/poignee.jpg', legende: 'La poignée-piètement' },
+        { src: 'assets/sur-mesure/buffet-envol/detail.jpg', legende: 'Le détail' },
+      ],
+      demande: 'Un buffet bas et sombre, presque monolithique, dont les poignées deviennent la signature de la pièce.',
+      caracteristiques: {
+        'Matériaux': 'Façade laquée moucheté aubergine, bronze sculpté',
+        'Finitions': 'Laque profonde mouchetée, bronze patiné satiné',
+        'Dimensions': 'L 260 × P 50 × H 70 cm',
+      },
+      planche: '',
+      nuancier: [
+        { nom: 'Laque aubergine mouchetée', couleur: '#3a1f26', texture: 'pierre' },
+        { nom: 'Bronze patiné', couleur: '#c08a4e', texture: 'metal' },
+        { nom: 'Plateau laqué noir', couleur: '#1f1a1c', texture: 'bois' },
+      ],
+      texte: 'Un caisson sombre en laque mouchetée, traversé par deux gestes en bronze. Chaque poignée naît sous le plateau, se replie et file jusqu’au sol pour devenir le piètement : le meuble semble flotter.',
+      details: [
+        { x: 34, y: 42, titre: 'Poignée sculptée', texte: 'Bronze modelé à la main, poli puis patiné satiné.' },
+        { x: 22, y: 78, titre: 'Piètement effilé', texte: 'La poignée se prolonge jusqu’au sol en une pointe fine.' },
+        { x: 70, y: 55, titre: 'Laque mouchetée', texte: 'Fond aubergine profond, moucheté de blanc en dégradés verticaux.' },
+      ],
+    },
+    {
+      nom: 'Armoire Sablier',
+      projet: 'Projet à confirmer',
+      secteur: 'Résidentiel',
+      image: 'assets/sur-mesure/armoire-sablier/vue-face.jpg',
+      triptyque: [
+        { src: 'assets/sur-mesure/armoire-sablier/vue-face.jpg', legende: 'La pièce' },
+        { src: 'assets/sur-mesure/armoire-sablier/detail.jpg', legende: 'Le détail' },
+        { src: 'assets/sur-mesure/armoire-sablier/pieds.jpg', legende: 'Le piètement' },
+      ],
+      demande: 'Une armoire haute au décor nocturne, assortie au buffet, avec la même signature en bronze.',
+      caracteristiques: {
+        'Matériaux': 'Façades laquées décor peint, bronze sculpté',
+        'Finitions': 'Laque bleu nuit brillante, décor géométrique moucheté, bronze patiné',
+        'Dimensions': 'L 120 × P 55 × H 190 cm',
+      },
+      planche: '',
+      nuancier: [
+        { nom: 'Laque bleu nuit', couleur: '#1c2c4a', texture: 'pierre' },
+        { nom: 'Moucheté bleu ciel', couleur: '#5f8fb5', texture: 'pierre' },
+        { nom: 'Laque lavande des flancs', couleur: '#6f74b0', texture: 'bois' },
+        { nom: 'Bronze patiné', couleur: '#c2a066', texture: 'metal' },
+      ],
+      texte: 'Deux portes laquées bleu nuit, peintes d’un décor de cercles et de losanges mouchetés. Les poignées en bronze se croisent en sablier puis filent jusqu’au sol pour porter l’armoire.',
+      details: [
+        { x: 58, y: 45, titre: 'Poignées en sablier', texte: 'Deux bronzes symétriques qui se rejoignent au centre des portes.' },
+        { x: 40, y: 25, titre: 'Décor peint', texte: 'Cercles et losanges mouchetés, peints sous une laque brillante.' },
+        { x: 30, y: 94, titre: 'Piètement effilé', texte: 'Le bronze se prolonge jusqu’au sol en une pointe fine.' },
+      ],
+    },
+    {
+      nom: 'Table d’appoint Oco',
+      projet: 'Luteca',
+      secteur: 'Restauration',
+      image: 'assets/sur-mesure/table-oco/vue-face.jpg',
+      triptyque: [
+        { src: 'assets/sur-mesure/table-oco/vue-face.jpg', legende: 'La pièce' },
+        { src: 'assets/sur-mesure/table-oco/detail.jpg', legende: 'Le détail' },
+        { src: 'assets/sur-mesure/table-oco/plateau.jpg', legende: 'Le plateau' },
+      ],
+      demande: 'Une petite table d’appoint en bois massif, sculpturale mais simple, déclinée en noyer et en chêne.',
+      caracteristiques: {
+        'Matériaux': 'Noyer massif ou chêne massif',
+        'Finitions': 'Huile naturelle satinée, chants adoucis',
+        'Dimensions': 'Ø 50 × H 55 cm',
+      },
+      planche: '',
+      nuancier: [
+        { nom: 'Noyer massif', couleur: '#6b3a24', texture: 'bois' },
+        { nom: 'Chêne massif', couleur: '#b5763e', texture: 'bois' },
+        { nom: 'Huile satinée', couleur: '#c99a68', texture: 'cuir' },
+      ],
+      texte: 'Un fût arrondi en bois massif, fendu d’une ouverture en arche, qui porte un plateau rond d’un seul geste. Proposée en noyer ou en chêne, finition huilée.',
+      details: [
+        { x: 50, y: 28, titre: 'Plateau rond', texte: 'Bois massif aux fils assortis, chant fin et adouci.' },
+        { x: 48, y: 60, titre: 'Fente en arche', texte: 'Une ouverture creusée dans le fût, qui allège la silhouette.' },
+        { x: 66, y: 50, titre: 'Fût sculpté', texte: 'Volume arrondi en bois massif, veinage vertical continu.' },
       ],
     },
     {
@@ -201,11 +316,7 @@
   const esc = (str) => String(str).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const num = (i) => String(i + 1).padStart(2, '0');
 
-  // Petits morceaux réutilisés dans les 3 dispositions
-  const specsHTML = (p) => `
-    <dl class="sm-specs">
-      ${Object.entries(p.caracteristiques).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}
-    </dl>`;
+  // Petits morceaux réutilisés dans les dispositions
   const swatchesHTML = (p) => `
     <ul class="sm-swatches" aria-label="Matériaux choisis">
       ${p.nuancier.map((n) => `<li><span class="sm-swatches__chip" style="background:${esc(n.couleur)}"></span>${esc(n.nom)}</li>`).join('')}
@@ -229,18 +340,22 @@
     scope.addEventListener('mouseleave', () => highlight(null));
   }
 
-  // ===== Disposition 5 : triptyque (vue arrière · la pièce · le détail) =====
+  // ===== Disposition 5 : triptyque (la pièce · vue arrière + détail empilés) =====
   // Seules les pièces qui ont un "triptyque" apparaissent ici.
   const triptyques = document.getElementById('view-triptyque');
+  const tripFig = (p, t) => `
+          <figure class="sm-trip__fig">
+            <img src="${esc(t.src)}" alt="${esc(p.nom)} : ${esc(t.legende)}" loading="lazy">
+          </figure>`;
   triptyques.innerHTML = PIECES.filter((p) => p.triptyque).map((p) => {
     const i = PIECES.indexOf(p);
     return `
     <article class="sm-trip">
       <div class="sm-trip__images">
-        ${p.triptyque.map((t, k) => `
-          <figure class="sm-trip__fig sm-trip__fig--${k + 1}">
-            <img src="${esc(t.src)}" alt="${esc(p.nom)} : ${esc(t.legende)}" loading="lazy"${t.position ? ` style="object-position: ${esc(t.position)}"` : ''}>
-          </figure>`).join('')}
+        ${tripFig(p, p.triptyque[0])}
+        <div class="sm-trip__col">
+          ${p.triptyque.slice(1).map((t) => tripFig(p, t)).join('')}
+        </div>
       </div>
       <div class="sm-trip__text">
         <div>
@@ -255,68 +370,34 @@
     </article>`;
   }).join('');
 
-  // ===== Disposition 4 : planche matériaux =====
-  // La planche : la vraie photo si elle existe, sinon des échantillons dessinés
-  // à partir du nuancier (emplacements prévus pour 6 matériaux maximum).
-  // Emplacements des échantillons selon leur nombre, pour remplir toute la planche
-  const PLANCHE_SLOTS = {
-    1: ['1 / 1 / 7 / 5'],
-    2: ['1 / 1 / 7 / 3', '1 / 3 / 7 / 5'],
-    3: ['1 / 1 / 7 / 3', '1 / 3 / 4 / 5', '4 / 3 / 7 / 5'],
-    4: ['1 / 1 / 4 / 3', '1 / 3 / 3 / 5', '3 / 3 / 7 / 5', '4 / 1 / 7 / 3'],
-    5: ['1 / 1 / 4 / 3', '1 / 3 / 3 / 5', '3 / 3 / 5 / 5', '4 / 1 / 7 / 3', '5 / 3 / 7 / 5'],
-    6: ['1 / 1 / 4 / 3', '1 / 3 / 3 / 5', '3 / 3 / 5 / 5', '4 / 1 / 7 / 3', '5 / 3 / 7 / 4', '5 / 4 / 7 / 5'],
-  };
-  const plancheHTML = (p) => p.planche
-    ? `<img src="${esc(p.planche)}" alt="Planche matériaux : ${esc(p.nom)}" loading="lazy">`
-    : `<div class="sm-board" aria-hidden="true">
-        ${p.nuancier.slice(0, 6).map((n, k) => `
-          <span class="sm-board__tile sm-tex--${esc(n.texture || 'bois')}" data-mat="${k}" style="--c:${esc(n.couleur)}; grid-area:${PLANCHE_SLOTS[Math.min(p.nuancier.length, 6)][k]}">
-            <span class="sm-board__num">${k + 1}</span>
-          </span>`).join('')}
-      </div>`;
-
-  const planches = document.getElementById('view-planches');
-  planches.innerHTML = PIECES.map((p, i) => `
-    <article class="sm-case">
-      <figure class="sm-case__photo">
-        <img src="${esc(p.image)}" alt="${esc(p.nom)}" loading="lazy">
-      </figure>
-      <div class="sm-case__board">${plancheHTML(p)}</div>
-      <div class="sm-case__card">
-        <p class="sm-eyebrow">Pièce ${num(i)} · ${esc(p.secteur)}</p>
-        <h2 class="sm-title">${esc(p.nom)}</h2>
-        <p class="sm-case__text">${esc(p.texte)}</p>
-        <ol class="sm-mats">
-          ${p.nuancier.map((n, k) => `<li data-mat="${k}"><span class="sm-mats__chip sm-tex--${esc(n.texture || 'bois')}" style="--c:${esc(n.couleur)}"></span>${esc(n.nom)}</li>`).join('')}
-        </ol>
-      </div>
-    </article>`).join('');
-
-  // Survol d'un échantillon ↔ nom du matériau mis en avant
-  planches.querySelectorAll('.sm-case').forEach((c) => {
-    const els = c.querySelectorAll('[data-mat]');
-    const hl = (k) => els.forEach((el) => el.classList.toggle('is-active', el.dataset.mat === k));
-    els.forEach((el) => el.addEventListener('mouseenter', () => hl(el.dataset.mat)));
-    els.forEach((el) => el.addEventListener('mouseleave', () => hl(null)));
+  // Largeur des colonnes calculée d'après le format des photos, pour que la photo
+  // de gauche ait exactement la même hauteur que les deux photos de droite empilées.
+  function fitTrip(article) {
+    const imgs = article.querySelectorAll('.sm-trip__images img');
+    const box = article.querySelector('.sm-trip__images');
+    if (imgs.length !== 3 || [...imgs].some((im) => !im.naturalWidth)) return;
+    const col = article.querySelector('.sm-trip__col');
+    const [a, b, c] = [...imgs].map((im) => im.naturalWidth / im.naturalHeight);
+    // Mobile : les deux petites photos côte à côte, à la même hauteur
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      box.style.gridTemplateColumns = '';
+      col.style.gridTemplateColumns = `${b}fr ${c}fr`;
+      return;
+    }
+    col.style.gridTemplateColumns = '';
+    const gap = parseFloat(getComputedStyle(box).columnGap) || 0;
+    const total = box.clientWidth;
+    if (!total) return; // onglet masqué : recalculé à l'affichage
+    const right = (total - gap - a * gap) / (a * (1 / b + 1 / c) + 1);
+    box.style.gridTemplateColumns = `${total - gap - right}px ${right}px`;
+  }
+  triptyques.querySelectorAll('.sm-trip').forEach((article) => {
+    article.querySelectorAll('img').forEach((im) => {
+      if (!im.complete) im.addEventListener('load', () => fitTrip(article));
+    });
+    fitTrip(article);
   });
-
-  // ===== Disposition 1 : fiches pièces en alternance =====
-  const fiches = document.getElementById('view-fiches');
-  fiches.innerHTML = PIECES.map((p, i) => `
-    <article class="sm-fiche">
-      <figure class="sm-fiche__figure">
-        <img src="${esc(p.image)}" alt="${esc(p.nom)}" loading="lazy">
-      </figure>
-      <div class="sm-fiche__body">
-        <p class="sm-eyebrow">Pièce ${num(i)} · ${esc(p.secteur)}</p>
-        <h2 class="sm-title">${esc(p.nom)}</h2>
-        <p class="sm-projet">${/^projet/i.test(p.projet) ? "" : "Projet "}${esc(p.projet)}</p>
-        <blockquote class="sm-demande"><span>La demande</span>${esc(p.demande)}</blockquote>
-        ${specsHTML(p)}
-        ${swatchesHTML(p)}
-      </div>
-    </article>`).join('');
+  window.addEventListener('resize', () => triptyques.querySelectorAll('.sm-trip').forEach(fitTrip));
 
   // ===== Disposition 2 : points de détail =====
   const detailsNav = document.querySelector('.sm-details__nav');
@@ -354,62 +435,6 @@
   });
   showPiece(0);
 
-  // ===== Disposition 3 : mosaïque + fiche latérale =====
-  const mosaique = document.getElementById('view-mosaique');
-  mosaique.innerHTML = PIECES.map((p, i) => `
-    <button class="sm-tile sm-tile--${(i % 6) + 1}" type="button" data-index="${i}" aria-label="Voir la fiche : ${esc(p.nom)}">
-      <img src="${esc(p.image)}" alt="" loading="lazy">
-      <span class="sm-tile__caption">
-        <span class="sm-tile__secteur">${esc(p.secteur)}</span>
-        <span class="sm-tile__nom">${esc(p.nom)}</span>
-      </span>
-    </button>`).join('');
-
-  const drawer = document.getElementById('sm-drawer');
-  const drawerContent = drawer.querySelector('.sm-drawer__content');
-  const drawerClose = drawer.querySelector('.sm-drawer__close');
-  let lastFocus = null;
-
-  function openDrawer(i) {
-    const p = PIECES[i];
-    lastFocus = document.activeElement;
-    drawerContent.innerHTML = `
-      <div class="sm-pinned">
-        <img src="${esc(p.image)}" alt="${esc(p.nom)}">
-        ${pinsHTML(p)}
-      </div>
-      <p class="sm-eyebrow">Pièce ${num(i)} · ${esc(p.secteur)}</p>
-      <h2 class="sm-title" id="sm-drawer-title">${esc(p.nom)}</h2>
-      <p class="sm-projet">${/^projet/i.test(p.projet) ? "" : "Projet "}${esc(p.projet)}</p>
-      <blockquote class="sm-demande"><span>La demande</span>${esc(p.demande)}</blockquote>
-      ${specsHTML(p)}
-      ${swatchesHTML(p)}
-      ${detailsListHTML(p)}`;
-    linkPins(drawerContent);
-    drawer.hidden = false;
-    document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => drawer.classList.add('is-open'));
-    drawerContent.scrollTop = 0;
-    drawerClose.focus();
-  }
-
-  function closeDrawer() {
-    drawer.classList.remove('is-open');
-    document.body.style.overflow = '';
-    setTimeout(() => { drawer.hidden = true; }, 350);
-    if (lastFocus) lastFocus.focus();
-  }
-
-  mosaique.addEventListener('click', (e) => {
-    const t = e.target.closest('.sm-tile');
-    if (t) openDrawer(Number(t.dataset.index));
-  });
-  drawerClose.addEventListener('click', closeDrawer);
-  drawer.addEventListener('click', (e) => { if (e.target === drawer) closeDrawer(); });
-  document.addEventListener('keydown', (e) => {
-    if (!drawer.hidden && e.key === 'Escape') closeDrawer();
-  });
-
   // ===== Onglets (temporaire, pour comparer les dispositions) =====
   const tabs = document.querySelectorAll('.view-tabs__btn');
   function selectTab(btn) {
@@ -420,6 +445,7 @@
       b.tabIndex = active ? 0 : -1;
       document.getElementById(b.getAttribute('aria-controls')).hidden = !active;
     });
+    window.dispatchEvent(new Event('resize')); // recale le triptyque s'il vient d'apparaître
   }
   tabs.forEach((btn, i) => {
     btn.addEventListener('click', () => selectTab(btn));
